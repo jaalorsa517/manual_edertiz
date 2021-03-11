@@ -13,11 +13,11 @@
                 span.negrita Inventario: 
                 span Término que se aplica al conteo actual de los productos en un negocio.
             li 
-                span.negrita Venta: 
-                span Término que se aplica a la venta de productos de un negocio.
-            li 
                 span.negrita Preventa: 
                 span Término que se refiere al proceso de hacer una venta en un día y la entrega de los productos en diás posteriores.
+            li 
+                span.negrita Venta: 
+                span Término que se aplica a la venta de productos de un negocio.
         h3.subtitulo Requisitos
         ul.requisitos
             li.negrita Hardware
