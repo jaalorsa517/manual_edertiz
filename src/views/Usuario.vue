@@ -1,17 +1,42 @@
 <template lang="pug">
     section.usuario-container
+        .button-flat(@click="showModal = true") 
+          img(:src="iconIndice")
+        modal(v-show="showModal")
+          ol.lists
+            li
+              a(href="#introduccion" @click="showModal = false") Introduccion
+            li
+              a(href="#objetivo" @click="showModal = false") Objetivo
+            li
+              a(href="#convenciones" @click="showModal = false") Convenciones
+            li
+              a(href="#especificacion" @click="showModal = false") Especificaciones técnicas
+            li
+              a(href="#paso" @click="showModal = false") Paso a paso
+            li
+              a(href="#operacion" @click="showModal = false") Operación del sistema
+            li
+              a(href="#recomendaciones" @click="showModal = false") Recomendaciones
+            li
+              a(href="#referencias" @click="showModal = false") Referencias
+            li
+              a(href="#glosario" @click="showModal = false") Glosario
+            li
+              router-link(to="/") Ir al Indice
+
         h1.titulo Manual de Usuario
 
-        h3.subtitulo Introducción
+        h3.subtitulo#introduccion Introducción
         p Todo sistema de información debe tener una guía para que las personas puedan hacer uso de él. 
          | Debe ser una guía clara y concisa que aclare todas las dudas de las personas involucradas en el sistema de información.
         p Este manual pretende ser lo más claro y objetivo posible, de tal modo que el usuario que lo lea comprenda, de manera eficaz, el funcionamiento del sistema de información.
         
-        h3.subtitulo Objetivo del manual
+        h3.subtitulo#objetivo Objetivo del manual
         p Ilustrar de manera clara el funcionamiento del sistema de información.
         
-        h3.subtitulo Convenciones
-        ul
+        h3.subtitulo#convenciones Convenciones
+        ul.lists
             li 
                 span.negrita APK: 
                 span Instalador del app listo para instalarse en el dispositivo Android.
@@ -40,18 +65,18 @@
                 span.negrita Venta: 
                 span Término que se aplica a la venta de productos de un negocio.
         
-        h3.subtitulo Especificaciones técnicas
-        ul
+        h3.subtitulo#especificacion Especificaciones técnicas
+        ul.lists
             li Software construido en Dart, con el framework Flutter.
             li Instalador para Sistema operativo Android 6.0 o superior.
             li Instalador con extensión *.apk.
             li Peso del instalador es 32MB
             li Peso del app luego de instalada es 55.90MB
         
-        h3.subtitulo Paso a paso
+        h3.subtitulo#paso Paso a paso
         paso-paso(:imagenes="iniciar" :instrucciones="instruccionesIniciar")
 
-        h3.subtitulo Operación del sistema
+        h3.subtitulo#operacion Operación del sistema
         p El App tiene 4 módulos que se van a explicar a continuación:
         h4.negrita Módulo Clientes
         paso-paso(:imagenes="clientes" :instrucciones="instruccionesClientes")
@@ -63,7 +88,7 @@
         h4.negrita Módulo Datos
         paso-paso(:imagenes="datos" :instrucciones="instruccionesDatos")
         
-        h3.subtitulo Recomendaciones adicionales
+        h3.subtitulo#recomendaciones Recomendaciones adicionales
         ul
             li Los módulos 'Clientes' y 'Productos' tienen funcionalidades similares.
             li El módulo 'Ventas' permite guardar y cargar el inventario del día; es decir, se puede hacer un inventario, guardarlo, tomar otro pedido y volver a cargar el inventario anterior.
@@ -71,8 +96,8 @@
             li Los pedidos guardados solo se pueden exportar en el mismo día en que se realizó. Sí no se exportan el mismo día, la información no se pierde, pero no hay forma de ser accedida.
         
         
-        h3.subtitulo Referencias
-        ul
+        h3.subtitulo#referencias Referencias
+        ul.lists.referencia
             li 
                 a(href="https://es.wikipedia.org/wiki/Valores_separados_por_comas" target="_blank") https://es.wikipedia.org/wiki/Valores_separados_por_comas
             li 
@@ -84,11 +109,11 @@
             li 
                 a(href="https://es.wikipedia.org/wiki/APK_(formato)" target="_blank") https://es.wikipedia.org/wiki/APK_(formato)
 
-        h3.subtitulo Glosario
+        h3.subtitulo#glosario Glosario
         ul
             li 
                 span.negrita Android: 
-                span Sistema operativo, creado por la compañia Alphabet (Google), para celulares inteligentes..
+                span Sistema operativo, creado por la compañia Alphabet (Google), para celulares inteligentes.
             li 
                 span.negrita APK: 
                 span Instalador del app listo para instalarse en el dispositivo Android.
@@ -110,15 +135,20 @@
 
 <script>
 import PasoPaso from "@/components/PasoPaso.vue";
+import modal from "@/components/Modal.vue"
 import imgs from "@/scripts/images";
+import iconIndice from "@/assets/indice.png";
 
 export default {
   name: "UsuarioView",
   components: {
-    PasoPaso
+    PasoPaso,
+    modal
   },
   data: function() {
     return {
+      showModal:false,
+      iconIndice,
       imgs,
       instruccionesIniciar: [
         "Se ubica el ícono de la App Edertiz y se da un toque.",

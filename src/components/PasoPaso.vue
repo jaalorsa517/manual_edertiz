@@ -1,5 +1,5 @@
 <template lang="pug">
-    ol.paso-paso
+    ol.lists
         li(v-for="image, index in imagenes" :key="index")
             p {{instrucciones[index]}}
             images(:imagen="image" :descr="`img-${index+1}`")
@@ -25,7 +25,3 @@ export default {
   }
 };
 </script>
-<style lang="stylus">
-.paso-paso
-  padding 0
-</style>

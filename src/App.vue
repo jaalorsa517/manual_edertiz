@@ -19,11 +19,12 @@ li
 
 section
   padding 20px 30px
+  position relative
+  z-index 1
 
 #app
   max-width 1024px
   margin 30px auto
-  position relative
   $cards()
 
 .titulo
@@ -46,6 +47,25 @@ section
   font-size 1.5rem
   font-weight bold
   text-align center
+
+.button-flat
+  padding 10px
+  position fixed
+  bottom 2vh
+  right 2vw
+  color #f5f5f5
+  z-index auto
+  cursor pointer
+  border-radius 100%
+  background-color rgba(51,54,62,0.5)
+
+.lists
+  padding 0
+
+.referencia
+  overflow hidden
+  text-overflow ellipsis
+  white-space nowrap
 
 @media screen and (max-width: 1100px)
   #app

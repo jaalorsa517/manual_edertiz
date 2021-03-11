@@ -19,7 +19,6 @@ function addStyleResource(rule) {
     .loader("style-resources-loader")
     .options({
       patterns: [
-        path.resolve(__dirname, "./src/styles/vars.styl"),
         path.resolve(__dirname, "./src/styles/mixins.styl")
       ]
     });

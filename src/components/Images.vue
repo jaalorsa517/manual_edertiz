@@ -24,4 +24,9 @@ export default {
 
     img:hover
       transform scale(1.2)
+      
+@media screen and (max-width:400px)
+  .images-container
+    width 230px  
+
 </style>
