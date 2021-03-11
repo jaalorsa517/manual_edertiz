@@ -1,23 +1,28 @@
 <template lang="pug">
     section.instalacion-container
         h1.titulo Instalación del App EDERTIZ
+
         h3.subtitulo Convenciones
         ul
             li 
                 span.negrita APP: 
                 span Programa para celular.
             li 
+                span.negrita CSV: 
+                span comma-separated values. Término que se refiere, a archivos de texto plano, que se almacena en forma de matriz, donde sus filas son separadas por medio del signo coma(,).
+            li 
                 span.negrita Explorador de archivos: 
                 span Programa encargado de gestionar los archivos del dispositivo.
             li 
-                span.negrita Inventario: 
-                span Término que se aplica al conteo actual de los productos en un negocio.
+                span.negrita GB: 
+                span Término que significa gigabyte. Medida que equivale a 1e+9 bytes.
             li 
-                span.negrita Preventa: 
-                span Término que se refiere al proceso de hacer una venta en un día y la entrega de los productos en diás posteriores.
+                span.negrita MB: 
+                span Término que significa megabyte. Medida que equivale a 	1e+6 bytes.
             li 
-                span.negrita Venta: 
-                span Término que se aplica a la venta de productos de un negocio.
+                span.negrita RAM: 
+                span Random Access Memory. Se refiere a la memoria de acceso aleatorio de un dispositivo.
+        
         h3.subtitulo Requisitos
         ul.requisitos
             li.negrita Hardware
@@ -33,46 +38,45 @@
         p Cable USB o bluetooth solo para el caso de agregar archivos CSV.
 
         h3.subtitulo Instalación del programa
-        ol
-            li(v-for="image, index in instalacion" :key="index")
-                p {{instruccion[index]}}
-                images(:imagen="image" :descr="`img-${index+1}`")
+        paso-paso(:imagenes="instalacion" :instrucciones="instruccionInstalacion")
 
         h3.subtitulo Configuración del programa
         p La App no necesita configuración obligatoria para su correcto funcionamiento. Pero está disponible la forma de ingresarle datos para que su primer inicio no sea desde 0.
         p Se repite, #[strong NO ES OBLIGATORIO].
         p La estructura de los archivos CSV dependerá del módulo a ser importado.
         p A continuación se podrá ver los pasos para configurar con un archivo CSV.
-        ol
-            li(v-for="image, index in configuracion" :key="index")
-                p {{instruccionConfiguracion[index]}}
-                images(:imagen="image" :descr="`img-${index+1}`")  
+        paso-paso(:imagenes="configuracion" :instrucciones="instruccionConfiguracion")
+        
         h3.subtitulo Consideraciones adicionales
         p En caso de problemas al instalar o configurar el App, notifiquese al los desarrolladores para informar de los problemas encontrados.
+        
         h3.subtitulo Referencias
         ul
             li
-                a(href="https://www.xatakandroid.com/tutoriales/como-instalar-aplicaciones-en-apk-en-un-movil-android" target="__blank") https://www.xatakandroid.com/tutoriales/como-instalar-aplicaciones-en-apk-en-un-movil-android
+              a(href="https://www.xatakandroid.com/tutoriales/como-instalar-aplicaciones-en-apk-en-un-movil-android" target="__blank") https://www.xatakandroid.com/tutoriales/como-instalar-aplicaciones-en-apk-en-un-movil-android
             li
-                a(href="https://developer.android.com/training/permissions/requesting?hl=es-419" target="_blank") https://developer.android.com/training/permissions/requesting?hl=es-419
+              a(href="https://developer.android.com/training/permissions/requesting?hl=es-419" target="_blank") https://developer.android.com/training/permissions/requesting?hl=es-419
             li
-                a(href="https://es.wikipedia.org/wiki/Valores_separados_por_comas" target="_blank") https://es.wikipedia.org/wiki/Valores_separados_por_comas
+              a(href="https://es.wikipedia.org/wiki/Valores_separados_por_comas" target="_blank") https://es.wikipedia.org/wiki/Valores_separados_por_comas
+            li
+              a(href="https://es.wikipedia.org/wiki/Memoria_de_acceso_aleatorio") https://es.wikipedia.org/wiki/Memoria_de_acceso_aleatorio
+
         router-link.navigator(to="/") Ir al Indice
 </template>
 
 <script>
 import imgs from "@/scripts/images";
-import images from "@/components/Images.vue";
+import pasoPaso from "@/components/PasoPaso.vue";
 
 export default {
-  name: "Instalacion",
+  name: "InstalacionView",
   components: {
-    images
+    pasoPaso
   },
   data: function() {
     return {
       imgs,
-      instruccion: [
+      instruccionInstalacion: [
         "Tener instalado algún explorador de archivos. Se recomienda File Manager. Para instalarlo solo basta con buscarlo en la App Store.",
         "Abrir el explorador y ubicar el ejecutable. Luego abrirlo.",
         "El sistema pide confirmación para instalar la App. Sí solicita permisos, se le debe conceder.",
@@ -87,7 +91,7 @@ export default {
           "Los datos del archivo CSV para producto son código producto, nombre, valor, iva",
         "Luego de seleccionado los datos a importar, se procede a buscar el archivo CSV usando el explorador de archivos",
         "Sí es primera vez que se ejecuta la importación de datos, pedirá permisos para acceso al almacenamiento del dispositvo. " +
-          "Se procede a concedercelos",
+          "Se procede a concedercelos. Luego de la carga exitosa, se debe reiniciar la app.",
         "En caso de que el archivo CSV no tenga la estructura mencionada anteriormente, la app cancela la importación y notifica con un mensaje."
       ]
     };
