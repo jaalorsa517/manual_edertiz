@@ -12,7 +12,7 @@ html, a
 body
   max-width 95vw
   margin 0 auto
-  background-color #f5f5f5
+  background-color color-back-ligth
 
 li
   line-height 1.5
@@ -53,11 +53,11 @@ section
   position fixed
   bottom 2vh
   right 2vw
-  color #f5f5f5
+  color color-back-ligth
   z-index auto
   cursor pointer
   border-radius 100%
-  background-color rgba(51,54,62,0.5)
+  background-color color-back-opacity
 
 .lists
   padding 0

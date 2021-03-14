@@ -20,6 +20,7 @@ export default {
         height 100%
         margin auto
         transition 500ms
+        z-index 4
         $cards()
 
     img:hover
