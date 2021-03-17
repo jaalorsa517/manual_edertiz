@@ -1,19 +1,11 @@
-# manualadsi
+# Manual Edertiz
 
-## Project setup
-```
-npm install
-```
+## Descripción
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+Este es un manual que describe la instalación y el uso del App Edertiz.
 
-### Compiles and minifies for production
-```
-npm run build
-```
+Este documento está realizado con Vue.Js.
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+# Link
+
+El demo se encuentra alojado [https://manual-edertiz.netlify.app/](https://manual-edertiz.netlify.app/)
