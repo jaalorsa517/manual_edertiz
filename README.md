@@ -8,4 +8,4 @@ Este documento está realizado con Vue.Js.
 
 # Link
 
-El demo se encuentra alojado [https://manual-edertiz.netlify.app/](https://manual-edertiz.netlify.app/)
+El demo se encuentra alojado [https://manual-edertiz.netlify.app/](https://manual-edertiz.jaalorsa.com)
