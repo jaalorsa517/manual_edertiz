@@ -6,6 +6,6 @@ Este es un manual que describe la instalación y el uso del App Edertiz.
 
 Este documento está realizado con Vue.Js.
 
-# Link
+# DEMO
 
-El demo se encuentra alojado [https://manual-edertiz.netlify.app/](https://manual-edertiz.jaalorsa.com)
+El demo se encuentra alojado [https://manual-edertiz.jaalorsa.com/](https://manual-edertiz.jaalorsa.com)
